@@ -1,0 +1,11 @@
+[user]
+	name = YC Su
+	email = hansycsu@gmail.com
+[alias]
+	unstage = reset HEAD --
+	logl = log --pretty=format:\"%h - %ad, %an : %s\" --date=short
+	logo = log --oneline
+	logb = log --oneline --branches --graph
+[core]
+	eol = lf
+	autocrlf = input
