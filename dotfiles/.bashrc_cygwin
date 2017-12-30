@@ -199,16 +199,16 @@
 
 
 
-# Editted by YC Su 2017.12.28
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
-alias ls='ls -F --color=auto --group-directories-first'
-alias ll='ls -l'
-alias lla='ls -lA'
-alias la='ls -A'
-# A backslash before command to avoid recursion and define
-alias l='\ls'
-alias dirs='dirs -v'
-alias so='source'
-# -ixon for Ctrl-S -ixoff for Ctrl-Q
-stty -ixon -ixoff
-
+# Load environment of mine
+# Edited by YC Su 2017.12.30
+if [ -f ~/.bash_env ]; then
+    source ~/.bash_env
+fi
