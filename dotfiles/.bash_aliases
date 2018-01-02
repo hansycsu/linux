@@ -1,4 +1,4 @@
-# Editted by YC Su 2017.12.28
+# Editted by YC Su 2018.01.02
 
 alias ls='ls -F --color=auto --group-directories-first'
 alias ll='ls -l'
@@ -8,5 +8,4 @@ alias la='ls -A'
 alias l='\ls'
 alias dirs='dirs -v'
 alias so='source'
-# -ixon for Ctrl-S -ixoff for Ctrl-Q
-stty -ixon -ixoff
+alias grep='grep --color=auto'
