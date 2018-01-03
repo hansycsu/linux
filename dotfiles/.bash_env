@@ -1,6 +1,21 @@
-# Editted by YC Su 2018.01.02
+# Editted by YC Su 2018.01.03
 
+# default editor = vim
 export VISUAL=vim
+
+# HISTCONTORL  : A colon-separated list of history options
+# 'ignorespace': lines which begin with a space character
+#                are not saved in the history list.
+#
+# 'ignoredups' : lines matching the previous history
+#                entry to not be saved.
+#
+# 'ignoreboth' : shorthand for ignorespace:ignoredups.
+#
+# 'erasedups'  : all previous lines matching the current
+#                line to be removed from the history list
+#                before that line is saved.
+export HISTCONTROL=ignoreboth:erasedups
 
 # -ixon for Ctrl-S -ixoff for Ctrl-Q
 stty -ixon -ixoff
