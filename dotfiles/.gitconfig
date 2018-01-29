@@ -2,8 +2,13 @@
 	name = YC Su
 	email = hansycsu@gmail.com
 [alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
 	unstage = reset HEAD --
-	logl = log --pretty=format:\"%h - %ad, %an : %s\" --date=short
+	last = log -1 HEAD
+	logl = log --pretty=format:\"%C(auto)%h %ad [%an] : %s%d\" --date=short
 	logo = log --oneline
 	logb = log --oneline --branches --graph
 [core]

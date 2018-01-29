@@ -202,11 +202,16 @@ fi
 #------------------------------------
 # Load environment of mine
 if [ -f ~/.bash_env ]; then
-    source ~/.bash_env
+  . ~/.bash_env
+fi
+
+# Load local setting of mine
+if [ -f ~/.bash_local ]; then
+  . ~/.bash_local
 fi
 
 # Ignore '.exe' when auto-completion
 shopt -s completion_strip_exe
 
 
-# Edited by YC Su 2018.01.02
+# Edited by YC Su 2018.01.29

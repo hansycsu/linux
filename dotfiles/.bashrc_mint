@@ -128,7 +128,14 @@ fi
 
 #------------------------------------
 # Load environment of mine
-# Edited by YC Su 2017.12.30
 if [ -f ~/.bash_env ]; then
-    source ~/.bash_env
+  . ~/.bash_env
 fi
+
+# Load local setting of mine
+if [ -f ~/.bash_local ]; then
+  . ~/.bash_local
+fi
+
+
+# Edited by YC Su 2017.12.30
