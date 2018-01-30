@@ -11,6 +11,10 @@
 	logl = log --pretty=format:\"%C(auto)%h %ad [%an] : %s%d\" --date=short
 	logo = log --oneline
 	logb = log --oneline --branches --graph
+	cpick = cherry-pick
+	dump = cat-file -p
+	type = cat-file -t
+	size = cat-file -s
 [core]
 	eol = lf
 	autocrlf = input
