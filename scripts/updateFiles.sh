@@ -15,7 +15,7 @@ updateFiles () {
     if [ $sum0 == $sum1 ]; then
       echo "'$file' equals!"
     else
-      cp -auv "$file" "$tPath/"
+      cp -a "$file" "$tPath/" && echo "'$file' -> '$tPath/$file'"
     fi
   done
 }
