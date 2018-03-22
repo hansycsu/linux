@@ -32,8 +32,8 @@ uncommentMarks () {
         flag=1
       else
         tmpList=($tmpList $i)
-        tmpList[0]=$(expr ${tmpList[0]} + 1)
-        tmpList[1]=$(expr ${tmpList[1]} - 1)
+        tmpList[0]=$((${tmpList[0]} + 1))
+        tmpList[1]=$((${tmpList[1]} - 1))
         if [ -z "$tmpStr" ]; then
           tmpStr=$(sed "${tmpList[0]},${tmpList[1]}s/^\(\s*\)\/\//\1/" "$file")
         else
