@@ -213,5 +213,9 @@ fi
 # Ignore '.exe' when auto-completion
 shopt -s completion_strip_exe
 
+# Load the function wcd to cd Windows Style Path
+if [ -f ~/linux/scripts/winPathCd.sh ]; then
+  . ~/linux/scripts/winPathCd.sh
+fi
 
 # Edited by YC Su 2018.01.29
