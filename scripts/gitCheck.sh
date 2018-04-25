@@ -10,6 +10,3 @@ function gitCheck {
     fi
     git status
 }
-
-gitCheck ~/linux
-gitCheck ~/.vim
