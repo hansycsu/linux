@@ -21,6 +21,11 @@
 #   backupFolder
 #############################################################################
 
+doTar() {
+  tar "${tarArgs[@]}" -zcf "$tPath/$fileName" "$folder"
+  echo "$folder -> $tPath/$fileName [${tarArgs[@]}]"
+}
+
 backupFolder() {
   # if folder not exist
   if [ ! -d "$folder" ]; then
@@ -38,16 +43,14 @@ backupFolder() {
 
     # if date (folder > tgz file) (newer than)
     if [ $(stat -c %Y "$folder") -gt $(stat -c %Y "$tPath/$fileName") ]; then
-    echo "$folder -> $tPath/$fileName [${tarArgs[@]}]"
-    tar -zcf "$tPath/$fileName" "${tarArgs[@]}" "$folder"
+      doTar
     else
       echo "$fileName is up to date."
     fi
 
   # if tgz file does not exist
   else
-    echo "$folder -> $tPath/$fileName [${tarArgs[@]}]"
-    tar -zcf "$tPath/$fileName" "${tarArgs[@]}" "$folder"
+    doTar
   fi
   unset fileName
 }
