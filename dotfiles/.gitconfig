@@ -15,6 +15,12 @@
 	dump = cat-file -p
 	type = cat-file -t
 	size = cat-file -s
+	d = difftool
+	dl = diff --name-only
 [core]
 	eol = lf
 	autocrlf = input
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
