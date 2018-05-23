@@ -1,0 +1,1362 @@
+														{
+															//block
+															case 0:	{		SetPic(panel_index, index, 130+cnt);  //SET_Rbit
+																					break;
+																			}	
+															case 1:	{	   	PBox[panel_index].piclist[0]=12;   //node
+																					PBox[panel_index].lb[0]->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+																					nodeindex=SearchLast("NODE", 0);
+																					PBox[panel_index].lb[0]->Text="NODE"+" "+nodeindex;
+																					PBox[panel_index].lb[0]->ForeColor=Color::Black;
+																					AddNode(panel_index, index, "NODE"+" "+nodeindex);
+																					break;
+																			}	
+
+															case 2:	{		PBox[panel_index].piclist[0]=11;   //label
+																					PBox[panel_index].lb[0]->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+																					break;
+																			}	
+															case 3:	{		SetPic(panel_index, index, 36);//JUMP_LABEL
+																					if (PBox[panel_index].piclist[index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}	
+															case 4:	{		SetPic(panel_index, index, 37);//JPON_LABEL
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}	
+															case 5:	{		SetPic(panel_index, index, 38); //JPOFF_LABEL
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}	
+															case 6:	{		SetPic(panel_index, index, 31);//SET_BR			
+																					AddBR(panel_index, index);
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}	
+															case 7:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3,  false);
+																								}
+																					}
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 157);
+																					Initial_FrameLU(panel_index, index, 157);
+																					piclist2=157;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+															case 8:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 3, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);	
+																								}
+																					}
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 158);
+																					Initial_FrameLU(panel_index, index, 158);
+																					piclist2=158;
+																		/*			if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+															case 9:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 4))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 4, false);	
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 4, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 4, false);	
+																								}
+																					}
+																					ChekDepth(panel_index, index, 4);
+																					PutFrame1(panel_index, index, 4, 159);
+																					Initial_FrameLU(panel_index, index, 159);
+																					piclist2=159;
+																		/*			if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+															case 10:	{		SetPic(panel_index, index, 26);//WAIT
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}	
+															case 11:	{		SetPic(panel_index, index, 27);   //R0_WAIT
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}	
+															case 12:	{		SetPic(panel_index, index, 28);  //R1_WAIT
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}	
+															case 13:	{		SetPic(panel_index, index, 29);//Colse FB
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}
+															case 14:	{		SetPic(panel_index, index, 135+cnt);  //INV_Rbit
+																				//	InsertInLoop(panel_index, index);
+																					break;
+																			}	
+															case 15:	{		SetPic(panel_index, index, 15);//JUMP_FB
+																					if (PBox[panel_index].piclist[index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}	
+															case 16:	{		SetPic(panel_index, index, 16);//JPON_FB
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}	
+															case 17:	{		SetPic(panel_index, index, 17); //JPOFF_FB
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}	
+															case 18:	{		SetPic(panel_index, index, 33);//JUMP_NODE
+																					if (PBox[panel_index].piclist[index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}	
+															case 19:	{		SetPic(panel_index, index, 34);//JPON_NODE
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}	
+															//logic
+															case 20:	{		SetPic(panel_index, index, 101+cnt);// "LD_00.jpg";
+																					//if (!Putpic2En)
+																					//		InsertInLoop(panel_index, index);
+																					break;
+																			}	
+															case 21:	{		SetPic(panel_index, index, 106+cnt); // "LDI_00.jpg"; 		
+																					//if (!Putpic2En)
+																					//		InsertInLoop(panel_index, index);
+																					break;
+																			}	
+															case 22:	{		SetPic(panel_index, index, 111+cnt); // "LD_TC_00.jpg";  
+																					//if (!Putpic2En)
+																					//		InsertInLoop(panel_index, index);
+																					break;
+																			}
+															case 23:	{		SetPic(panel_index, index, 116+cnt); // "LDI_TC_00.jpg"; 	
+																					//if (!Putpic2En)
+																					//		InsertInLoop(panel_index, index);
+																					break;
+																			}	
+															case 24:	{		SetPic(panel_index, index, 121+cnt);					// "LD_DWbit_00.jpg"															
+																					//Dymamic add label
+																					PBox[panel_index].lb4[index] = (gcnew System::Windows::Forms::Label());   
+																					PBox[panel_index].pic[ index]->Controls->Add(this->PBox[panel_index].lb4[index]);								
+																					PBox[panel_index].lb4[index]->Text="???"; //Parameter;
+																					PBox[panel_index].lb4[index]->Font = (gcnew System::Drawing::Font(L"Calibri", 7, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+																					static_cast<System::Byte>(0)));
+																					PBox[panel_index].lb4[index]->DoubleClick +=gcnew System::EventHandler(this,&UiObForm::lb4DClick);
+																					PBox[panel_index].lb4[index]->Tag = index; // 設定編號
+																					PBox[panel_index].lb4[index]->Visible =true;
+																					PBox[panel_index].lb4[index]->ForeColor=Color::Red;
+																				//	InsertInLoop(panel_index, index);
+																					break;
+																			}			
+															case 25:	{		SetPic(panel_index, index, 126+cnt);// "LDI_DWbit_00.jpg"; 
+																					//Dymamic add label
+																					PBox[panel_index].lb4[index] = (gcnew System::Windows::Forms::Label());   
+																					PBox[panel_index].pic[index]->Controls->Add(this->PBox[panel_index].lb4[index]);										
+																					PBox[panel_index].lb4[index]->Text="???"; //Parameter;
+																					PBox[panel_index].lb4[index]->Font = (gcnew System::Drawing::Font(L"Calibri", 7, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+																					static_cast<System::Byte>(0)));
+																					PBox[panel_index].lb4[index]->DoubleClick +=gcnew System::EventHandler(this,&UiObForm::lb4DClick);
+																					PBox[panel_index].lb4[index]->Tag = index; // 設定編號
+																					PBox[panel_index].lb4[index]->Visible =true;
+																					PBox[panel_index].lb4[index]->ForeColor=Color::Red;
+																				//	InsertInLoop(panel_index, index);
+																					break;
+																			}	
+															case 26:	{		SetPic(panel_index, index, 25); // "NOT_IO.jpg"; 
+																					PBox[panel_index].lb[ index]->Text="???"; 
+																					PBox[panel_index].lb[ index]->Visible=true;
+																					break;
+																			}
+															case 27:	{		SetPic(panel_index, index, 151+cnt); // "NOT_Rbit.jpg"; 
+																				//	InsertInLoop(panel_index, index);
+																					break;
+																			}
+															case 28:	{		SetPic(panel_index, index, 24);//"KOUT.jpg;
+																					if (PBox[panel_index].piclist[index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}
+															case 29:	{		SetPic(panel_index, index, 19);  //"KOUT_i.jpg;
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}
+
+															case 30:	{		SetPic(panel_index, index, 21); //"DOUT.jpg";  	
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}	
+															case 31:	{		SetPic(panel_index, index, 22); //"SOUT.jpg";  
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}			
+															case 32:	{		SetPic(panel_index, index, 23); //"ROUT.jpg;
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}	
+															case 33:	{		SetPic(panel_index, index, 18);//"ROUT_i.jpg;	
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}	
+															case 34:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 3, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);	
+																								}
+																					}			
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 156);
+																					Initial_FrameLU(panel_index, index, 156);
+																					piclist2=156;
+																	/*				if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+															case 39:	{		SetPic(panel_index, index, 35); //JPOFF_NODE  <=====logic
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					break;
+																			}	
+															//AO
+															case 40:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 3, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);	
+																								}
+																					}		
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 160);
+																					Initial_FrameLU(panel_index, index, 160);
+																					piclist2=160;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}			
+															case 41:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 3, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);	
+																								}
+																					}		
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 168);
+																					Initial_FrameLU(panel_index, index, 168);
+																					piclist2=168;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}
+															case 42:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 3, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);	
+																								}
+																					}		
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 161);
+																					Initial_FrameLU(panel_index, index, 161);
+																					piclist2=161;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}			
+															case 43:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame	
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 4))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 4, false);	
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 4, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 4, false);	
+																								}
+																					}	
+																					ChekDepth(panel_index, index, 4);
+																					PutFrame1(panel_index, index, 4, 162);
+																					Initial_FrameLU(panel_index, index, 162);
+																					piclist2=162;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}		
+															case 44:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame	
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 3, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);	
+																								}
+																					}		
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 163);
+																					Initial_FrameLU(panel_index, index, 163);
+																					piclist2=163;
+																	/*				if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+															case 45:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame	
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 4))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 4, false);	
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 4, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 4, false);	
+																								}
+																					}
+																					ChekDepth(panel_index, index, 4);
+																					PutFrame1(panel_index, index, 4, 164);
+																					Initial_FrameLU(panel_index, index, 164);
+																					piclist2=164;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+															case 46:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame	
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 10))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 10, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 10, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 10, false);	
+																								}
+																					}
+																					ChekDepth(panel_index, index, 10);
+																					PutFrame1(panel_index, index, 10, 165);
+																					Initial_FrameLU(panel_index, index, 165);
+																					piclist2=165;
+																		/*			if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+															case 47:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 2))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 2, false);		
+																								else 
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 2, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 2, false);	
+																								}
+																					}		
+																					ChekDepth(panel_index, index, 2);
+																					PutFrame1(panel_index, index, 2, 166);
+																					Initial_FrameLU(panel_index, index, 166);
+																					piclist2=166;
+																		/*			if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+															case 48:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame	
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 5))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 5, false);
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 5, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 5, false);	
+																								}
+																					}					
+																					ChekDepth(panel_index, index, 5);
+																					PutFrame1(panel_index, index, 5, 167);
+																					Initial_FrameLU(panel_index, index, 167);
+																					piclist2=167;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+	
+															//AO_FOLLOW
+															case 60:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 3, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);	
+																								}
+																					}			
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 170);
+																					Initial_FrameLU(panel_index, index, 170);
+																					piclist2=170;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}			
+															case 61:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 3, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);	
+																								}
+																					}		
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 171);
+																					Initial_FrameLU(panel_index, index, 171);
+																					piclist2=171;
+																		/*			if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;								
+																			}		
+															case 62:	{		//加水平線
+																					if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 2))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 2, false);		
+																								else 
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 2, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 2, false);	
+																								}
+																					}	
+																					ChekDepth(panel_index, index, 2);
+																					PutFrame1(panel_index, index, 2, 172);
+																					Initial_FrameLU(panel_index, index, 172);
+																					piclist2=172;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}			
+														//FLASH
+														case 80:	{			//加水平線
+																					if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 3, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);	
+																								}
+																					}
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 180);
+																					Initial_FrameLU(panel_index, index, 180);
+																					piclist2=180;
+																		/*			if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}
+														case 81:	{			//加水平線
+																					if (InsertInloopEn)
+																								InsertInLoop2(panel_index, index);
+																					AddHlineCnt=AddHline2(true);	
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 3, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);	
+																								}
+																					}			
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 181);
+																					Initial_FrameLU(panel_index, index, 181);
+																					piclist2=181;
+																			/*		if (InsertInloopEn)
+																					{
+																								HlineAdj(panel_index, index+2, index+2+ShiftRcnt-1);
+																								CheckMoveLeft3(panel_index, index);
+																					}*/
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																								SetPic(panel_index, index+3, 141);
+																								SavePic(panel_index, index+3, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}			
+														case 82:	{			//加水平線
+																					if (InsertInloopEn)
+																								InsertInLoop2(panel_index, index);
+																					AddHlineCnt=AddHline2(true);	
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 9))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 9, false);	
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 9, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 9, false);	
+																								}
+																					}
+																					ChekDepth(panel_index, index, 9);
+																					PutFrame1(panel_index, index, 9, 182);
+																					Initial_FrameLU(panel_index, index, 182);
+																					piclist2=182;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																								SetPic(panel_index, index+3, 141);
+																								SavePic(panel_index, index+3, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}			
+														case 83:	{			//加水平線
+																					if (InsertInloopEn)
+																								InsertInLoop2(panel_index, index);	
+																					AddHlineCnt=AddHline2(true);	
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 3, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);	
+																								}
+																					}
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 183);
+																					Initial_FrameLU(panel_index, index, 183);
+																					piclist2=183;
+																		/*			if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																								SetPic(panel_index, index+3, 141);
+																								SavePic(panel_index, index+3, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}		
+														case 84:	{			//加水平線
+																					if (InsertInloopEn)
+																								InsertInLoop2(panel_index, index);
+																					AddHlineCnt=AddHline2(true);	
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 3, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);	
+																								}
+																					}			
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 184);
+																					Initial_FrameLU(panel_index, index, 184);
+																					piclist2=184;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																								SetPic(panel_index, index+3, 141);
+																								SavePic(panel_index, index+3, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+														case 85:	{			//加水平線
+																					if (InsertInloopEn)
+																								InsertInLoop2(panel_index, index);
+																					AddHlineCnt=AddHline2(true);	
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 8))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 8, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 8, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 8, false);	
+																								}
+																					}
+																					ChekDepth(panel_index, index, 8);
+																					PutFrame1(panel_index, index, 8, 185);
+																					Initial_FrameLU(panel_index, index, 185);
+																					piclist2=185;
+																	/*				if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																								SetPic(panel_index, index+3, 141);
+																								SavePic(panel_index, index+3, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+														case 86:	{			//加水平線
+																					if (InsertInloopEn)
+																								InsertInLoop2(panel_index, index);
+																					AddHlineCnt=AddHline2(true);	
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 3, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);	
+																								}
+																					}	
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 186);
+																					Initial_FrameLU(panel_index, index, 186);	
+																					piclist2=186;
+																		/*			if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																								SetPic(panel_index, index+3, 141);
+																								SavePic(panel_index, index+3, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+														case 87:	{			//加水平線
+																					if (InsertInloopEn)
+																								InsertInLoop2(panel_index, index);
+																					AddHlineCnt=AddHline2(true);	
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 3, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);	
+																								}
+																					}			
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 187);
+																					Initial_FrameLU(panel_index, index, 187);	
+																					piclist2=187;
+																		/*			if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																								SetPic(panel_index, index+3, 141);
+																								SavePic(panel_index, index+3, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+														case 88:	{			if (InsertInloopEn)
+																								InsertInLoop2(panel_index, index);	
+																					AddHlineCnt=AddHline2(true);	
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 3, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);	
+																								}
+																					}			
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 188);
+																					Initial_FrameLU(panel_index, index, 188);	
+																					piclist2=188;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																								SetPic(panel_index, index+3, 141);
+																								SavePic(panel_index, index+3, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+														case 89:	{			if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 5))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 5, false);	
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 5, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 5, false);	
+																								}
+																					}
+																					ChekDepth(panel_index, index, 5);
+																					PutFrame1(panel_index, index, 5, 189);
+																					Initial_FrameLU(panel_index, index, 189);
+																					piclist2=189;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+														//SPC
+														case 100:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame			
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 5))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 5, false);	
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 5, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 5, false);	
+																								}
+																					}
+																					ChekDepth(panel_index, index, 5);
+																					PutFrame1(panel_index, index, 5, 175);
+																					Initial_FrameLU(panel_index, index, 175);
+																					piclist2=175;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+														case 101:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 2))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 2, false);		
+																								else 
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 2, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 2, false);	
+																								}
+																					}		
+																					ChekDepth(panel_index, index, 2);
+																					PutFrame1(panel_index, index, 2, 176);
+																					Initial_FrameLU(panel_index, index, 176);
+																					piclist2=176;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+														case 102:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 3, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);	
+																								}
+																					}																
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 177);
+																					Initial_FrameLU(panel_index, index, 177);
+																					piclist2=177;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+														case 103:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame	
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 3, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);	
+																								}
+																					}																			
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 178);
+																					Initial_FrameLU(panel_index, index, 178);
+																					piclist2=178;
+																				/*	if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}*/
+																					InsertComponetMode=false;
+																					break;
+																			}
+														//TIMER
+														case 120:	{	//	PBox[panel_index].piclist[ index]=201;   
+																					SetPic(panel_index, index, 200);  //Timer
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																				//	lb4_Create(panel_index, index);
+																					break;
+																			}
+														case 121:	{		//PBox[panel_index].piclist[ index]=206;       
+																					SetPic(panel_index, index, 205);  //RTIME
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																				//	lb4_Create(panel_index, index);
+																					break;
+																			}
+														case 122:	{		//PBox[panel_index].piclist[ index]=211;    
+																					SetPic(panel_index, index, 210);   //TMSTP
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																				//	lb4_Create(panel_index, index);
+																					break;
+																			}
+														case 123:	{		//PBox[panel_index].piclist[ index]=216;   
+																					SetPic(panel_index, index, 215);    //TMCNTI
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					//lb4_Create(panel_index, index);
+																					break;
+																			}
+														case 124:	{		//PBox[panel_index].piclist[ index]=221;     
+																					SetPic(panel_index, index, 220);  //Counter
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					//lb4_Create(panel_index, index);
+																					break;
+																			}
+														case 125:	{		//PBox[panel_index].piclist[ index]=226;    
+																					SetPic(panel_index, index, 225);   //CNTINC
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					//lb4_Create(panel_index, index);
+																					break;
+																			}
+														case 126:	{		//PBox[panel_index].piclist[ index]=231;     
+																					SetPic(panel_index, index, 230);  //RCNT
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					//lb4_Create(panel_index, index);
+																					break;
+																			}
+														case 127:	{		//PBox[panel_index].piclist[ index]=236;     
+																					SetPic(panel_index, index, 235);  //Delay
+																					if (PBox[panel_index].piclist[ index+1]==39)
+																								RemovePic(panel_index, index+1);
+																					//lb4_Create(panel_index, index);
+																					break;
+																			}
+
+														//CMP, MATH
+														case 140:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame	
+																					AddHlineCnt=AddHline2(true);	
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 2, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);	
+																								}
+																					}		
+																					return;
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 190);
+																					Initial_FrameLU(panel_index, index, 190);
+																					piclist2=190;
+																		/*			if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+														case 141:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame		
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 4))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 4, false);	
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 4, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 4, false);	
+																								}
+																					}		
+																					ChekDepth(panel_index, index, 4);
+																					PutFrame1(panel_index, index, 4, 191);
+																					Initial_FrameLU(panel_index, index, 191);
+																					piclist2=191;
+																				/*	if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+														case 142:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame			
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 4))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 4, false);	
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 4, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 4, false);	
+																								}
+																					}			
+																					ChekDepth(panel_index, index, 4);
+																					PutFrame1(panel_index, index, 4, 192);
+																					Initial_FrameLU(panel_index, index, 192);
+																					piclist2=192;
+																		/*			if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+														case 143:	{		if (InsertInloopEn)
+																								InsertInLoop2(panel_index, index);   //MATHP
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 4))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 4, false);	
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 4, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 4, false);	
+																								}
+																					}		
+																					ChekDepth(panel_index, index, 4);
+																					PutFrame1(panel_index, index, 4, 193);
+																					Initial_FrameLU(panel_index, index, 193);
+																					piclist2=193;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																								SetPic(panel_index, index+3, 141);
+																								SavePic(panel_index, index+3, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+														case 144:	{		if (InsertInloopEn)
+																								InsertInLoop2(panel_index, index); //MATHR 
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 4))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 4, false);	
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 4, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 4, false);	
+																								}
+																					}				
+																					ChekDepth(panel_index, index, 4);
+																					PutFrame1(panel_index, index, 4, 194);
+																					Initial_FrameLU(panel_index, index, 194);
+																					piclist2=194;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																								SetPic(panel_index, index+3, 141);
+																								SavePic(panel_index, index+3, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+														case 145:	{		if (InsertInloopEn)
+																								InsertInLoop2(panel_index, index);  //MATH
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt,3))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 3, false);		
+																								else
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 3, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 3, false);	
+																								}
+																					}		
+																					ChekDepth(panel_index, index, 3);
+																					PutFrame1(panel_index, index, 3, 196);
+																					Initial_FrameLU(panel_index, index, 196);
+																					piclist2=196;
+																		/*			if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																								SetPic(panel_index, index+3, 141);
+																								SavePic(panel_index, index+3, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+														case 146:	{		if (InsertInloopEn)
+																								InsertInLoop2(panel_index, index);  //MOVE	
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 2))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 2, false);		
+																								else 
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 2, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 2, false);	
+																								}
+																					}							
+																					ChekDepth(panel_index, index, 2);
+																					PutFrame1(panel_index, index, 2, 195);
+																					Initial_FrameLU(panel_index, index, 195);
+																					piclist2=195;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																								SetPic(panel_index, index+3, 141);
+																								SavePic(panel_index, index+3, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+														case 147:	{		if (InsertInloopEn)
+																								InsertInLoop2(panel_index, index);  //RCNBV
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 11))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 11, false);		
+																								else 
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 11, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 11, false);	
+																								}
+																					}							
+																					ChekDepth(panel_index, index, 11);
+																					PutFrame1(panel_index, index, 11, 197);
+																					Initial_FrameLU(panel_index, index, 197);
+																					piclist2=197;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																								SetPic(panel_index, index+3, 141);
+																								SavePic(panel_index, index+3, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+														case 148:	{		if (InsertInloopEn)
+																								InsertInLoop2(panel_index, index);  //RCNBV
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 5))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 5, false);		
+																								else 
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 5, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 5, false);	
+																								}
+																					}							
+																					ChekDepth(panel_index, index, 5);
+																					PutFrame1(panel_index, index, 5, 198);
+																					Initial_FrameLU(panel_index, index, 198);
+																					piclist2=198;
+																					break;
+																			}	
+														case 160:	{		if (InsertInloopEn)
+																								InsertInLoop3(panel_index, index);  //無輸出pin的frame		
+																					AddHlineCnt=AddHline2(true);
+																					if (ChkInsertRow(panel_index, index-AddHlineCnt, 2))
+																					{
+																								if (FirstSymbol)
+																										InsertMultipleRow(panel_index, index, 2, false);		
+																								else 
+																								{
+																										if (InLoopMode)
+																													InsertMultipleRange(panel_index, index, 2, false);
+																										else
+																													InsertMultipleRow(panel_index, index-AddHlineCnt, 2, false);	
+																								}
+																					}					
+																					ChekDepth(panel_index, index, 2);
+																					PutFrame1(panel_index, index, 2, 197);
+																					Initial_FrameLU(panel_index, index, 197);
+																					piclist2=197;
+																			/*		if (InsertComponetMode)
+																					{
+																								SetPic(panel_index, index+2, 141);
+																								SavePic(panel_index, index+2, 0, 0);
+																					}
+																					InsertComponetMode=false;*/
+																					break;
+																			}	
+			 											}		

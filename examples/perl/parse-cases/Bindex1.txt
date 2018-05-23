@@ -1,0 +1,97 @@
+// vim: ft=cpp
+case 0:     =>  130
+case 1:     =>  1
+case 2:     =>  1
+case 3:     =>  36
+case 4:     =>  37
+case 5:     =>  38
+case 6:     =>  31
+case 7:     =>  157 // set_br_io1
+case 8:     =>  158 // set_br_io0
+case 9:     =>  159 // set_br_equ
+case 10:    =>  26
+case 11:    =>  27
+case 12:    =>  28
+case 13:    =>  29
+case 14:    =>  135
+case 15:    =>  36  // JMP_FB
+case 16:    =>  37  // JMON_FB
+case 17:    =>  38  // JMOFF_FB
+case 18:    =>  36  // JMP_NODE
+case 19:    =>  37  // JMON_NODE
+
+//LOGIC
+case 20:    =>  101
+case 21:    =>  106
+case 22:    =>  111
+case 23:    =>  116
+case 24:    =>  121 // LD_Mbit
+case 25:    =>  126 // LDI_Mbit
+case 26:    =>  25  // NOT_IO
+case 27:    =>  151 // NOT_Rbit
+case 28:    =>  24  // KOUT
+case 29:    =>  19  // KOUT_i
+case 30:    =>  21  // DOUT
+case 31:    =>  22  // SOUT
+case 32:    =>  23  // ROUT
+case 33:    =>  18  // ROUT_i
+case 34:    =>  156 // WBIT_CNTL
+case 35:    =>                           // New branch
+case 39:    =>  38  // JMOFF_NODE  <=====Logic
+
+//AO
+case 40:    =>  160 // DAOP
+case 41:    =>  168 // DAIP
+case 42:    =>  161 // DAOLIN
+case 43:    =>  162 // PVRATUD
+case 44:    =>  163 // AOSDOT
+case 45:    =>  164 // AO_OUT
+case 46:    =>  165
+case 47:    =>  166
+case 48:    =>  167
+
+//AO_FOLLOW
+case 60:    =>  170
+case 61:    =>  171
+case 62:    =>  172
+
+//Flash
+case 80:    =>  180
+case 81:    =>  181
+case 82:    =>  182
+case 83:    =>  183
+case 84:    =>  184
+case 85:    =>  185
+case 86:    =>  186
+case 87:    =>  187
+case 88:    =>  188
+case 89:    =>  189
+
+//spc
+case 100:   =>  175
+case 101:   =>  176
+case 102:   =>  177
+case 103:   =>  178
+
+//TIMER
+case 120:   =>  200
+case 121:   =>  205
+case 122:   =>  210
+case 123:   =>  215
+case 124:   =>  220
+case 125:   =>  225
+case 126:   =>  230
+case 127:   =>  235
+
+//CMP, MATH
+case 140:   =>  190
+case 141:   =>  191
+case 142:   =>  192
+case 143:   =>  193
+case 144:   =>  194
+case 145:   =>  196
+case 146:   =>  195
+case 147:   =>  197
+case 148:   =>  198
+case 149:   =>  199
+case 160:   =>  179
