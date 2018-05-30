@@ -82,3 +82,9 @@
 # Ctrl-Right for move cursor one word right
 "\e[1;5C": forward-word
 
+
+# Editted by YC Su 2018.05.30
+
+# Filename completion/expansion
+set completion-ignore-case on
+set show-all-if-ambiguous on
