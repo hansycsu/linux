@@ -6,7 +6,7 @@ elif [ "$1" == "cygwin" ]; then
     echo "Processing cygwin..."
 else
     echo "Error: Unknown argument"
-    echo "Syntax: sLinkDotFiles [mint|cygwin]"
+    echo "Syntax: sLinkDotFiles <mint|cygwin>"
     exit 0
 fi
 
@@ -22,8 +22,9 @@ ln -fsv $(pwd)/.gitconfig ~/
 if [ "$1" == "mint" ]; then
     echo "Linking mint files..."
     ln -fsv $(pwd)/.bashrc_mint ~/.bashrc
+    ln -fsv $(pwd)/.inputrc_mint ~/.inputrc
 elif [ "$1" == "cygwin" ]; then
     echo "Linking cygwin files..."
     ln -fsv $(pwd)/.bashrc_cygwin ~/.bashrc
-    ln -fsv $(pwd)/.inputrc ~/
+    ln -fsv $(pwd)/.inputrc_cygwin ~/.inputrc
 fi
