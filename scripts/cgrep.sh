@@ -7,13 +7,20 @@
 # Usage:
 #   cgrep [PATTERN] [FILENAME]
 cgrep() {
-  if [ -z "$1" ] || [ -z "$2" ]; then
+  if [ -z "$1" ] || [ -f "$2" ]; then
     echo "Usage: cgrep [PATTERN] [FILENAME]"
     return 1
   fi
 
-  grep --color=always -aHn "$1" "$2" |
-  sed -Ee 's/^([^:]+:[^:]+:.{6})\s*/\1\t/'
+  if [ -t 1 ] ; then
+  # if stdout is terminal
+    grep --color=always -aHn "$1" "$2" |
+    sed -Ee 's/^([^:]+:[^:]+:.{6})\s*/\1\t/'
+  else
+  # if stdout is not terminal
+    grep -aHn "$1" "$2" | sed -Ee 's/^([^:]+:[^:]+:)\s*/\1\t/'
+  fi
+
 }
 
 # Code grep all: cgrepall
@@ -34,7 +41,14 @@ cgrepall() {
     return 1
   fi
 
-  find * -maxdepth 0 -type f \( -name '*.h' -o -name '*.cpp' \) ! -name 'v_*' -exec \
-    grep --color=always -aHn "$1" {} + |
-    sed -Ee 's/^([^:]+:[^:]+:.{6})\s*/\1\t/'
+  if [ -t 1 ] ; then
+  # if stdout is terminal
+    find * -maxdepth 0 -type f \( -name '*.h' -o -name '*.cpp' \) ! -name 'v_*' -exec \
+      grep --color=always -aHn "$1" {} + |
+      sed -Ee 's/^([^:]+:[^:]+:.{6})\s*/\1\t/'
+  else
+  # if stdout is not terminal
+    find * -maxdepth 0 -type f \( -name '*.h' -o -name '*.cpp' \) ! -name 'v_*' -exec \
+      grep -aHn "$1" {} + | sed -Ee 's/^([^:]+:[^:]+:)\s*/\1\t/'
+  fi
 }
