@@ -52,6 +52,15 @@ def now():
   now = datetime.datetime.now()
   return now.replace(microsecond=0)
 
+# ============================================================
+# size_format() will return human-readable size format string
+#
+# paramter:
+#   int num - size (in Byte)
+#   char suffix - unit suffix (default: 'B')
+# return: string - human-readable size format
+# author: YC Su <hansycsu@gmail.com>
+# ============================================================
 def size_format(num, suffix='B'):
   for unit in ['','Ki','Mi','Gi','Ti','Pi','Ei','Zi']:
     if abs(num) < 1024.0:
