@@ -11,6 +11,8 @@
 	logl = log --pretty=format:\"%C(auto)%h %ad [%an] : %s%d\" --date=short
 	logo = log --oneline
 	logb = log --oneline --branches --graph
+ loga = log --pretty=format:\"%C(auto)%h %ad [%an] : %s%d\" --date=short --branches --graph
+	tags = log --pretty=format:\"%C(auto)%h %ad [%an] : %s%d\" --date=short --no-walk --tags
 	cpick = cherry-pick
 	dump = cat-file -p
 	type = cat-file -t
