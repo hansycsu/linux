@@ -7,7 +7,7 @@
 # Usage:
 #   cgrep [PATTERN] [FILENAME]
 cgrep() {
-  if [ -z "$1" ] || [ -f "$2" ]; then
+  if [ -z "$1" ] || [ ! -f "$2" ]; then
     echo "Usage: cgrep [PATTERN] [FILENAME]"
     return 1
   fi
