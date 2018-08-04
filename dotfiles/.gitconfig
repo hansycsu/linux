@@ -20,6 +20,7 @@
 	size = cat-file -s
 	d = difftool
 	dl = diff --name-only
+	ref = reflog --date=short --format='%C(auto)%h %<|(17)%gD %gs%d'
 [core]
 	eol = lf
 	autocrlf = input
