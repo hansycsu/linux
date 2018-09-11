@@ -1,4 +1,4 @@
-# Editted by YC Su 2018.01.02
+# Created by YC Su
 
 alias ls='ls -F --color=auto --group-directories-first --time-style=long-iso'
 alias ll='ls -l'
@@ -11,5 +11,7 @@ alias so='source'
 alias grep='grep --color=auto'
 alias yclsblk='lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,UUID'
 alias sudo='sudo '
-alias ycps='ps axo pid,user,ppid,comm'
-alias ycpsd='ps axo pid,user,ppid,args'
+alias ycps='ps axo pid,user,ppid,%cpu,%mem,comm'
+alias ycpsd='ps axo pid,user,ppid,%cpu,%mem,args'
+alias df='df -T'
+alias topp='top -b -n 1'
