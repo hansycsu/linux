@@ -22,6 +22,7 @@
 	d = difftool
 	dl = diff --name-only
 	ref = reflog --date=short --format='%C(auto)%h %<|(17)%gD %gs%d'
+	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 [core]
 	eol = lf
 	autocrlf = input
