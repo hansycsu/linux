@@ -14,7 +14,7 @@
 	loga = log --pretty=format:\"%C(auto)%h %ad [%an] : %s%d\" --date=short --branches --graph
 	tags = log --pretty=format:\"%C(auto)%h %ad [%an] : %s%d\" --date=short --no-walk --tags
 	ll   = log --pretty=format:\"%C(auto)%h %ad [%an] : %s%d\" --date=short --branches --graph -20
-    file-history = log --stat --follow --pretty=format:\"%C(auto)%h %ad [%an] : %s%d\" --date=short
+	file-history = log --stat --follow --pretty=format:\"%C(auto)%h %ad [%an] : %s%d\" --date=short
 	cpick = cherry-pick
 	dump = cat-file -p
 	type = cat-file -t
@@ -32,3 +32,5 @@
 	prompt = false
 [push]
 	default = simple
+[log]
+	date = iso
