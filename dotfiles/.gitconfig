@@ -21,6 +21,7 @@
 	size = cat-file -s
 	d = difftool
 	dl = diff --name-only
+	dp = "!f() { commit=$1; shift; git d $commit^ $commit \"$@\"; }; f"
 	ref = reflog --date=short --format='%C(auto)%h %<|(17)%gD %gs%d'
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 	ls = "!f() { git ls-tree --name-only @ \"$1\" | while read filename; do echo \"$(git log -1 --format=\"%ad\" -- $filename) $filename\"; done }; f"
