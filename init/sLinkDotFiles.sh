@@ -10,8 +10,7 @@ else
     exit 0
 fi
 
-SCR_PATH=$(dirname $BASH_SOURCE)
-SCR_PATH=$(cd $SCR_PATH && pwd)
+SCR_PATH=$(cd "$(dirname "${BASH_SOURCE}")" && pwd)
 cd $SCR_PATH/../dotfiles
 
 echo "Linking general files..."
