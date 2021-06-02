@@ -27,7 +27,7 @@
 	ls = "!f() { git ls-tree --name-only @ \"$1\" | while read filename; do echo \"$(git log -1 --format=\"%ad\" -- $filename) $filename\"; done }; f"
 [core]
 	eol = lf
-	autocrlf = input
+	autocrlf = false
 [diff]
 	tool = vimdiff
 [difftool]
@@ -36,3 +36,7 @@
 	default = simple
 [log]
 	date = iso
+[branch]
+	autosetuprebase = always
+[merge]
+	tool = vimdiff
