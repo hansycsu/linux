@@ -19,3 +19,7 @@ alias vir='vim -R'
 alias hoff='set +o history'
 alias hon='set -o history'
 alias cpt='cp --preserve=timestamps'
+psfilter() {
+  grep "$@" | grep -v grep
+}
+alias ycpsf='ycpsd | psfilter '
