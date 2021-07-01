@@ -23,3 +23,6 @@ psfilter() {
   grep "$@" | grep -v grep
 }
 alias ycpsf='ycpsd | psfilter '
+c() {
+  cd "$@"; ll
+}
