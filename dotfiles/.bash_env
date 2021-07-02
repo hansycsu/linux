@@ -19,3 +19,6 @@ export HISTCONTROL=ignoreboth:erasedups
 
 # -ixon for Ctrl-S -ixoff for Ctrl-Q
 stty -ixon -ixoff
+
+# append ~/bin to $PATH
+export PATH=~/bin:$PATH
