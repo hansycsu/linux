@@ -218,3 +218,11 @@ shopt -s completion_strip_exe
 
 # Simulate sudo in Cygwin
 alias sudo='cygstart --action=runas'
+
+# Fix Cygwin non-login shell
+if [ -z ${SESSIONNAME+x} ]; then
+    #echo "SESSIONNAME is unset"
+    export SESSIONNAME=Console
+    . /etc/profile
+    cd - > /dev/null 2>&1
+fi
