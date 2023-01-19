@@ -43,3 +43,5 @@
 	autosetuprebase = always
 [merge]
 	tool = vimdiff
+[protocol "file"]
+	allow = always
