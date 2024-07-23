@@ -26,3 +26,24 @@ alias ycpsf='ycpsd | psfilter '
 c() {
   cd "$@"; ll
 }
+cfilelistgen() {
+  if [ ! -d .ycsu ]; then
+    mkdir .ycsu
+  fi
+  cd .ycsu
+  find ../* -name "*.c" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" > filelist-cpp
+  cd ..
+}
+cstaggen() {
+  if [ ! -d .ycsu ]; then
+    echo No .ycsu directory
+    return 0
+  fi
+  cd .ycsu
+  if [ ! -f filelist-cpp ]; then
+    echo No filelist-cpp
+    return 0
+  fi
+  ctags -L filelist-cpp ; cscope -bqki filelist-cpp
+  cd ..
+}
