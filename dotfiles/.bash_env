@@ -1,7 +1,8 @@
-# Editted by YC Su 2018.01.03
+# Editted by YC Su 2025-12-01
 
 # default editor = vim
 export VISUAL=vim
+export EDITOR=vim
 
 # HISTCONTORL  : A colon-separated list of history options
 # 'ignorespace': lines which begin with a space character
